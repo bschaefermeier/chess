@@ -77,7 +77,15 @@ class GameController:
             possible_moves.append((piece, moves))
         return possible_moves
 
-    def move_piece(self, piece, field, check_possible_move=True):
+    def move(self, start, target, verbose=True):
+        """ Move a piece based on coordinates. Start and target must be tuples (x,y) of field indices. """
+        xs, ys = start
+        xt, yt = target
+        piece = self.game.board.fields[xs][ys].piece
+        field = self.game.board.fields[xt][yt]
+        return self.move_piece(piece, field, verbose=verbose)
+
+    def move_piece(self, piece, field, check_possible_move=True, verbose=True):
         # Check whether game is already finished.
         if self.game.winner is not None:
             print("Game is already finished.")
@@ -101,7 +109,8 @@ class GameController:
             field.piece = None
             beaten_piece.player.pieces.remove(beaten_piece)
             self.game.beatenPieces.append(beaten_piece)
-            print("Beaten piece")
+            if verbose:
+                print("Beaten piece")
         piece.set_field(field)
 
         # New active player.
@@ -111,7 +120,7 @@ class GameController:
         winner = self.check_winner()
         if winner is not None:
             self.game.winner = winner
-            print("Game finished. Winner is " + str(winner))
+            #print("Game finished. Winner is " + str(winner))
         return True
 
     def check_winner(self):
@@ -241,6 +250,9 @@ class Field:
         self.piece = piece
         if piece.field != self:
             piece.set_field(self)
+    
+    def coordinates(self):
+        return self.x, self.y
 
 class Piece:
     """ An abstract game piece. """
@@ -259,6 +271,9 @@ class Piece:
         self.field = field
         if field.piece != self:
             field.set_piece(self)
+
+    def coordinates(self):
+        return self.field.coordinates()
 
     def can_move_to(self, field):
         raise NotImplementedError
