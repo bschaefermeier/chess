@@ -155,7 +155,7 @@ class Node:
 
     def best_child(self):
         if self.has_children():
-            return self.rank_child_nodes()
+            return self.rank_child_nodes()[0]
         return None
 
     def __repr__(self):
