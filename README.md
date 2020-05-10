@@ -1,7 +1,5 @@
 # Playing chess through Monte Carlo tree search (MCTS).
-This is an implementation of the Monte Carlo tree search algorithm, together with (a so-far slightly simplified version of) the game chess.
-
-Through Monte Carlo tree search, an AI learns the game by playing matches against itself. More specifically, starting from a current game situation, a game tree of possible subsequent situations (states) is built. Each node in the tree holds statistics about the current game situation, which determine the value of the action that led to it.
+This is an implementation of the Monte Carlo tree search algorithm, together with (a so-far slightly simplified version of) the game chess. Through Monte Carlo tree search, an AI learns the game by playing matches against itself. More specifically, starting from a current game situation, a game tree of possible subsequent situations (states) is built. Each node in the tree holds statistics about the current game situation, which determine the value of the action that led to it.
 
 ## Jupyter Notebooks
 [Monte Carlo tree search playing chess](MCTS.ipynb)
