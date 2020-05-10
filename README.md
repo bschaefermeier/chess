@@ -13,9 +13,10 @@ The simulation here is done (as is common) through random actions. However, othe
 
 ## Jupyter Notebooks
 [Monte Carlo tree search playing chess](MCTS.ipynb)
+
 [Chess Implementation](Chess.ipynb)
 
-## ToDos
+## Further steps
 ### AI Performance
 - Use something different from random simulations.
   - Heuristics for beating opponent's pieces.
