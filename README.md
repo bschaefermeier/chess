@@ -3,6 +3,12 @@ This is an implementation of the Monte Carlo tree search algorithm, together wit
 
 Through Monte Carlo tree search, an AI learns the game by playing matches against itself. More specifically, starting from a current game situation, a game tree of possible subsequent situations (states) is built. Each node in the tree holds statistics about the current game situation, which determine the value of the action that led to it.
 
+## Jupyter Notebooks
+[Monte Carlo tree search playing chess](MCTS.ipynb)
+
+[Chess Implementation](Chess.ipynb)
+
+## Monte Carlo Tree Search
 MCTS consists of the following steps:
 1. **Selection.** A leaf <img src="https://render.githubusercontent.com/render/math?math=L"> in the game tree is selected by some criterion. The criterion used is the *upper confidence bound applied to trees* (UCT).
 2. **Expansion.** Starting from <img src="https://render.githubusercontent.com/render/math?math=L">. the game tree is expanded (i.e., child nodes with subsequent game states are added). A random child node <img src="https://render.githubusercontent.com/render/math?math=C"> is selected.
@@ -11,10 +17,6 @@ MCTS consists of the following steps:
 
 The simulation here is done (as is common) through random actions. However, other methods are possible, e.g., guiding the AI through heuristics, using reinforcement learning or determining some value function which rates a state (e.g., based on statistics from chess match data sets). Hence, instead of determining the winner of a simulation, some other *score* or *value* for a game situation <img src="https://render.githubusercontent.com/render/math?math=C"> can be backpropagated.
 
-## Jupyter Notebooks
-[Monte Carlo tree search playing chess](MCTS.ipynb)
-
-[Chess Implementation](Chess.ipynb)
 
 ## Further steps
 ### AI Performance
